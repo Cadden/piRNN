@@ -20,12 +20,13 @@ def get_first(A,C,G,T):
 
 	if rn < lt1:
 		ot = "A"
-	elif rn < lt2 and rm >= lt1:
+	elif rn < lt2 and rn >= lt1:
 		ot = "C"
-	elif rn < lt3 and rm >= lt2:
+	elif rn < lt3 and rn >= lt2:
 		ot = "G"	
-	elif rn < lt4 and rm >= lt3:
+	elif rn < lt4 and rn >= lt3:
 		ot = "T"
+	return ot
 
 def getlength(min_cd,max_cd):
 	"get the sequence length"
@@ -225,7 +226,7 @@ num = int(i / 2) # half of negetive sample are generated from here
 # once the sequence length meet the length requirement, then jump out of the while loop and put the sequence into negetive set
 for index in range(num):
 	leng = getlength(min_cd - 1, max_cd)
-	seq = getfirst(toatl_A, total_G, total_C, total_T)
+	seq = get_first(total_A, total_G, total_C, total_T)
 	while(1):
 		next_nt = getnext(seq[-1],sub_lt)
 		seq = seq + next_nt
@@ -268,5 +269,6 @@ trna.close()
 random.shuffle(nege_seq) #shuffle the list
 
 for i in range(len(nege_seq)):
-	print'>nege_%d'%i
+	print ('>nege_%d'%i)
 	print(nege_seq[i])
+
