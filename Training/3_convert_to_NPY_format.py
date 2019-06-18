@@ -22,7 +22,7 @@ X = dataset[:,0:1364].astype(float)
 Y = dataset[:,1364]
 
 numpy.save('X_train.npy',X)
-numpy.save('Y_train.npy',Y_tr)
+numpy.save('Y_train.npy',Y)
 
 ####################################################
 
